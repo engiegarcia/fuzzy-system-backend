@@ -1,0 +1,37 @@
+[project]
+name = "proyecto-difuso"
+version = "1.0.0"
+description = "Sistema de inferencia difusa Mamdani para la gestión inteligente del consumo eléctrico doméstico (UNMSM, Sistemas Inteligentes, Grupo 6)"
+readme = "README.md"
+requires-python = ">=3.11"
+# Las dependencias exactas viven en requirements.txt / requirements-dev.txt (instalación con pip).
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+filterwarnings = [
+    # Starlette 1.x recomienda 'httpx2' para TestClient; el proyecto fija 'httpx' (requisito del grupo).
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [".venv", "venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+extend-exclude = '''
+/(
+  \.venv
+  | venv
+)/
+'''

@@ -1,0 +1,13 @@
+# Versiones exactas (últimas estables en PyPI al 2026-10-07 para Python 3.11), fijadas para builds reproducibles.
+# Nota: NumPy 2.5.x y SciPy 1.18.x exigen Python >= 3.12; en Python 3.11 las últimas estables
+# instalables son numpy 2.4.6 y scipy 1.17.1. scikit-fuzzy 0.5.0 funciona con NumPy 2.x:
+# no fue necesario bajar ningún paquete (ver README).
+fastapi==0.142.4
+uvicorn[standard]==0.54.0
+pydantic==2.13.5
+pydantic-settings==2.15.0
+numpy==2.4.6
+scipy==1.17.1
+scikit-fuzzy==0.5.0
+matplotlib==3.11.2
+python-dotenv==1.2.4

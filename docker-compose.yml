@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: .
+    image: proyecto-difuso-backend:1.0.0
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    # El .env se inyecta como variables de entorno del contenedor (opcional: si no existe, se usan los valores por defecto).
+    env_file:
+      - path: .env
+        required: false
+    restart: unless-stopped
+
+  # Ejemplo de frontend (Next.js/React) a desarrollar; descomente y ajuste.
+  # frontend:
+  #   build: ../frontend
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     NEXT_PUBLIC_API_URL: http://localhost:${BACKEND_PORT:-8000}
+  #   depends_on:
+  #     backend:
+  #       condition: service_healthy
