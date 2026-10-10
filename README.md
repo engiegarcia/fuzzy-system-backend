@@ -335,6 +335,13 @@ docker compose up --build
 - El `.env` se inyecta como variables de entorno (es opcional).
 - En `docker-compose.yml` hay un servicio `frontend` de ejemplo, comentado.
 
+### Render
+
+El repositorio incluye `render.yaml` para crear un Web Service Docker con chequeo HTTP en
+`/health`. Al conectarlo en Render, define `CORS_ALLOWED_ORIGINS` con la URL de producción del
+frontend, por ejemplo `['https://tu-proyecto.vercel.app']`. No uses `*`: el backend solo permite
+orígenes explícitos. Render inyecta `PORT` y el contenedor lo usa automáticamente.
+
 ## 10. Versiones y compatibilidad
 
 Las dependencias están fijadas con `==` (últimas versiones estables en PyPI al 2026-10-07) y la suite

@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: sistema-difuso-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ENVIRONMENT
+        value: prod
+      - key: LOG_JSON
+        value: "true"
+      # Configurar en Render con la URL definitiva de Vercel, por ejemplo:
+      # ["https://tu-proyecto.vercel.app"]
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
